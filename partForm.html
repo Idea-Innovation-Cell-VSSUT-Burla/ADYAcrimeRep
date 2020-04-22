@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head><title>FORM</title>
+    <meta name="author" content="Adya">
+  <meta name="viewport" content="width=600, initial-scale=1.0"> 
+    
+    
+    </head>
+<style>
+    html{
+        height:100%
+    }
+    body{ 
+        margin:0; 
+        font:normal 75% Arial, Helvetica, sans-serif;
+    
+  
+  font-size: 14px;
+  line-height: 1.5;
+  
+  min-height: 100%;
+  position: relative;
+    
+    } 
+        canvas{ 
+            display: block; 
+        vertical-align: bottom; 
+        } 
+         #particles-js{ 
+             position:absolute;
+              width: 100%; 
+              height: 100%;
+               background-color:#0f0f0f; 
+               
+                background-repeat: no-repeat; 
+                background-size: cover;
+                 background-position: 50% 50%;
+    }
+                  
+       h1{
+           text-align: center;
+           color:#f5540a ;
+       }                       
+    p{
+        text-align: center;
+        color:#f5540a ;
+    }
+   
+     label {
+  margin-top: 6px;
+  line-height: 17px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ #container{
+        position:absolute;
+            top:50%;
+            left:50%;
+            background-color:darkorange;
+        opacity:0.9;
+            
+            
+       max-height:70%;
+            border-radius:15px;
+            transform: translate(-50%, -50%);
+            box-shadow: 10px 10px 20px grey;
+            border:2px solid black;
+       max-width:100%;
+     padding:15px 10px 25px 10px;
+        
+    }
+    .welcome{
+        color:white;
+         position:absolute;
+    top:10%;
+    left:20%;
+    font-size:1.5em;
+    }
+    form{
+        padding:20px 20px 20px 20px;
+        margin:20px 20px 20px 20px;
+       
+    }
+    input{
+        border-radius:20px;
+        box-shadow: inset 2px 2px 2px black;
+       
+    }
+    #fname{
+        
+        padding-left:10px;
+        padding-right:5px;
+    }
+    label{
+        font-weight: bold;
+        margin-top:10px;
+    }
+    select{
+        height:35px;
+        width:100%;
+        border-radius:20px;
+                box-shadow: inset 2px 2px 2px black;
+        
+    }
+    button{
+        border-radius:20px;
+        position:absolute;
+        left:35%;
+        height:8%;
+        width:30%;
+        box-shadow: 2px 2px 2px black ;
+       
+    }
+    button:hover{
+        background-color: black; 
+        color:darkorange;
+    }
+    @media only screen and (max-width: 600px){
+        #container{
+        
+        }
+    }
+</style>
+<body>
+ <div id="particles-js">
+  
+ </div> 
+    <div id="container">
+        <div class="login-container-wrapper clearfix">
+        
+          <form action=""   name="Form"     onsubmit="return validateForm()">
+  <label for="fname">YOUR NAME:</label><br>
+  <input type="text" id="fname" name="fname" placeholder="Your Name" maxlength="20" style="font-size:1.2em;height:30px" required><br><br>
+              <label for="fname">PLACE:</label><br>
+  <input type="text" id="fname" name="fname" placeholder="Place" maxlength="20" style="font-size:1.2em;height:30px" required><br><br>
+               <label for="fname">DATE:</label><br>
+              <input type="date" id="fname" name="fname"  maxlength="20" style="font-size:1.2em;height:30px;width:95%;" required><br><br>
+              <label id="fnname" for="crime">Choose type of  Crime:</label><br>
+  <select id="fname" name="crime" required>
+      <option selected="selected" disabled selected hidden>Crime</option>
+    <option value="murder">Murder</option>
+    <option value="roberry">Roberry</option>
+    <option value="molestation">Molestation</option>
+    <option value="embezzelment">Embezzelment</option>
+  </select>
+  <br><br>
+              <button type="submit" >SUBMIT</button>
+</form>   
+       
+    </div>
+    
+    
+    </div>
+ 
+ <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+
+
+<script>
+    particlesJS("particles-js",
+     {
+         "particles":
+         {
+             "number":
+             {
+                 "value":40,
+                 "density":
+                 {
+                     "enable":true,
+                     "value_area":120
+                    }
+                    },
+                    "color":{"value":"#f0731f"},
+                    "shape":{"type":["circle"],
+                    "stroke":{"width":2,"color":"#f24b29"},
+                    "polygon":{"nb_sides":5},
+                   
+                },
+                "opacity":{"value":1.2,
+                "random":false,
+                "anim":{"enable":true,"speed":2,"opacity_min":0.1,"sync":false}
+            },
+            "size":{"value":15,"random":true,
+            "anim":{"enable":true,"speed":4,"size_min":0.1,"sync":false}
+        },
+        "line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},
+        "move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":true,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},
+        "interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"bubble"},
+        "onclick":{"enable":true,"mode":"push"},
+        "resize":true},
+        "modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},
+        "bubble":{"distance":250,"size":20,"duration":2,"opacity":0.5,"speed":3},
+        "repulse":{"distance":200,"duration":0.4},
+        "push":{"particles_nb":4},
+        "remove":{"particles_nb":2}}},
+        "retina_detect":true});
+        var count_particles, stats, update; stats = new Stats;
+         stats.setMode(0); 
+         stats.domElement.style.position = 'absolute'; 
+         stats.domElement.style.left = '0px';
+          stats.domElement.style.top = '0px';
+          
+           count_particles = document.querySelector('.js-count-particles'); 
+           update = function() {
+                stats.begin(); 
+                stats.end();
+                 if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array)
+                  {
+                       count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+                     } 
+                     requestAnimationFrame(update);
+                     };
+                      requestAnimationFrame(update);;
+
+                      
+</script>
+</body>
+
+
+
+
+
+</html>
